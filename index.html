@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم إدخالات QuickBooks Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📊 لوحة تحكم إدخالات QuickBooks Online</h1>
+            <p>نظام شامل لإدارة جميع أنواع الإدخالات المحاسبية</p>
+        </header>
+
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="showModule('invoices')">📄 الفواتير</button>
+            <button class="nav-btn" onclick="showModule('ar')">👥 حسابات المدينين (AR)</button>
+            <button class="nav-btn" onclick="showModule('ap')">🏢 حسابات الدائنين (AP)</button>
+            <button class="nav-btn" onclick="showModule('collection')">💰 التحصيل</button>
+            <button class="nav-btn" onclick="showModule('payment')">💳 المدفوعات</button>
+            <button class="nav-btn" onclick="showModule('reconciliation')">✅ التسويات</button>
+            <button class="nav-btn" onclick="showModule('vendor')">🏭 إعداد مورد جديد</button>
+            <button class="nav-btn" onclick="showModule('customer')">👤 إعداد عميل جديد</button>
+        </div>
+
+        <!-- الفواتير -->
+        <div id="invoices" class="module hidden">
+            <h2>📄 الفواتير (Invoices)</h2>
+            
+            <div class="module-content">
+                <h3>الخطوات:</h3>
+                <ol class="steps">
+                    <li>اذهب إلى <strong>+ New</strong> من الصفحة الرئيسية</li>
+                    <li>اختر <strong>Invoice</strong></li>
+                    <li>اختر اسم <strong>العميل</strong> من القائمة المنسدلة</li>
+                    <li>أدخل <strong>رقم الفاتورة</strong> و <strong>التاريخ</strong></li>
+                    <li>اختر <strong>الخدمات/المنتجات</strong> المطلوبة</li>
+                    <li>أدخل <strong>الكمية والسعر</strong></li>
+                    <li>تحقق من <strong>الضرائب والخصومات</strong> (إن وجدت)</li>
+                    <li>انقر <strong>Save and Close</strong></li>
+                </ol>
+
+                <div class="example-section">
+                    <h3>📋 مثال عملي:</h3>
+                    <div class="example-box">
+                        <p><strong>البيانات:</strong></p>
+                        <ul>
+                            <li>العميل: شركة النور للتجارة</li>
+                            <li>رقم الفاتورة: INV-001-2024</li>
+                            <li>التاريخ: 26/09/2024</li>
+                            <li>تاريخ الاستحقاق: 26/10/2024</li>
+                        </ul>
+                        
+                        <table class="example-table">
+                            <tr>
+                                <th>البند</th>
+                                <th>الكمية</th>
+                                <th>السعر/الوحدة</th>
+                                <th>المجموع</th>
+                            </tr>
+                            <tr>
+                                <td>خدمة استشارة</td>
+                                <td>10</td>
+                                <td>500 ريال</td>
+                                <td>5,000 ريال</td>
+                            </tr>
+                            <tr>
+                                <td>خدمة تدقيق</td>
+                                <td>5</td>
+                                <td>1,000 ريال</td>
+                                <td>5,000 ريال</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="3"><strong>المجموع قبل الضريبة</strong></td>
+                                <td><strong>10,000 ريال</strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><strong>ضريبة القيمة المضافة (15%)</strong></td>
+                                <td><strong>1,500 ريال</strong></td>
+                            </tr>
+                            <tr class="grand-total">
+                                <td colspan="3"><strong>الإجمالي النهائي</strong></td>
+                                <td><strong>11,500 ريال</strong></td>
+                            </tr>
+                        </table>
+
+                        <p style="margin-top: 15px;"><strong>النتيجة:</strong> تم إنشاء فاتورة للعميل برقم INV-001-2024 بقيمة 11,500 ريال</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-placeholder">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f0f0f0' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23999'%3Eشاشة إنشاء فاتورة في QuickBooks%3C/text%3E%3C/svg%3E" alt="Invoice Screenshot">
+                </div>
+            </div>
+        </div>
+
+        <!-- حسابات المدينين -->
+        <div id="ar" class="module hidden">
+            <h2>👥 حسابات المدينين (Accounts Receivable)</h2>
+            
+            <div class="module-content">
+                <h3>الخطوات:</h3>
+                <ol class="steps">
+                    <li>اذهب إلى <strong>Reports</strong> من القائمة الرئيسية</li>
+                    <li>ابحث عن <strong>Accounts Receivable</strong></li>
+                    <li>اختر <strong>Customer Balance Summary</strong> أو <strong>Aging Summary</strong></li>
+                    <li>حدد <strong>نطاق التاريخ</strong> المطلوب</li>
+                    <li>اضغط <strong>Run Report</strong></li>
+                    <li>ستظهر قائمة بجميع <strong>المبالغ المستحقة من العملاء</strong></li>
+                </ol>
+
+                <div class="example-section">
+                    <h3>📋 مثال عملي:</h3>
+                    <div class="example-box">
+                        <p><strong>تقرير AR للربع الأول 2024:</strong></p>
+                        
+                        <table class="example-table">
+                            <tr>
+                                <th>اسم العميل</th>
+                                <th>الفاتورة</th>
+                                <th>التاريخ</th>
+                                <th>المبلغ</th>
+                                <th>المدفوع</th>
+                                <th>الرصيد المستحق</th>
+                                <th>الحالة</th>
+                            </tr>
+                            <tr>
+                                <td>شركة النور</td>
+                                <td>INV-001</td>
+                                <td>01/01/2024</td>
+                                <td>11,500</td>
+                                <td>5,000</td>
+                                <td>6,500</td>
+                                <td>متأخر 30+ يوم</td>
+                            </tr>
+                            <tr>
+                                <td>مؤسسة الفرج</td>
+                                <td>INV-002</td>
+                                <td>15/01/2024</td>
+                                <td>8,000</td>
+                                <td>0</td>
+                                <td>8,000</td>
+                                <td>متأخر 30+ يوم</td>
+                            </tr>
+                            <tr>
+                                <td>شركة الخليج</td>
+                                <td>INV-003</td>
+                                <td>01/09/2024</td>
+                                <td>15,000</td>
+                                <td>15,000</td>
+                                <td>0</td>
+                                <td>مدفوع</td>
+                            </tr>
+                            <tr>
+                                <td>شركة التقدم</td>
+                                <td>INV-004</td>
+                                <td>20/09/2024</td>
+                                <td>12,000</td>
+                                <td>0</td>
+                                <td>12,000</td>
+                                <td>حالي</td>
+                            </tr>
+                            <tr class="grand-total">
+                                <td colspan="4"><strong>الإجمالي</strong></td>
+                                <td><strong>20,000</strong></td>
+                                <td colspan="2"><strong>26,500 ريال مستحق</strong></td>
+                            </tr>
+                        </table>
+
+                        <p style="margin-top: 15px;"><strong>الملاحظات:</strong></p>
+                        <ul>
+                            <li>عميلان لديهما ديون متأخرة أكثر من 30 يوم</li>
+                            <li>إجمالي المستحقات: 26,500 ريال</li>
+                            <li>يجب متابعة العملاء المتأخرين</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="screenshot-placeholder">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f0f0f0' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23999'%3Eتقرير AR في QuickBooks%3C/text%3E%3C/svg%3E" alt="AR Report Screenshot">
+                </div>
+            </div>
+        </div>
+
+        <!-- حسابات الدائنين -->
+        <div id="ap" class="module hidden">
+            <h2>🏢 حسابات الدائنين (Accounts Payable)</h2>
+            
+            <div class="module-content">
+                <h3>الخطوات:</h3>
+                <ol class="steps">
+                    <li>اذهب إلى <strong>+ New</strong></li>
+                    <li>اختر <strong>Check</strong> أو <strong>Bill</strong> (فاتورة المورد)</li>
+                    <li>اختر اسم <strong>المورد</strong></li>
+                    <li>أدخل <strong>رقم الفاتورة</strong> من المورد و<strong>التاريخ</strong></li>
+                    <li>اختر <strong>الحساب</strong> المناسب (نفقات/مشتريات)</li>
+                    <li>أدخل <strong>البيان</strong> و<strong>المبلغ</strong></li>
+                    <li>انقر <strong>Save and Close</strong></li>
+                </ol>
+
+                <div class="example-section">
+                    <h3>📋 مثال عملي - إدخال فاتورة مورد:</h3>
+                    <div class="example-box">
+                        <p><strong>بيانات فاتورة المورد:</strong></p>
+                        <ul>
+                            <li>المورد: شركة الإمداد للتوريد</li>
+                            <li>رقم فاتورة المورد: SUP-2024-5678</li>
+                            <li>تاريخ الفاتورة: 20/09/2024</li>
+                            <li>تاريخ الاستحقاق: 20/10/2024</li>
+                        </ul>
+
+                        <table class="example-table">
+                            <tr>
+                                <th>البند</th>
+                                <th>الوصف</th>
+                                <th>الكمية</th>
+                                <th>السعر/الوحدة</th>
+                                <th>المجموع</th>
+                            </tr>
+                            <tr>
+                                <td>مستلزمات مكتبية</td>
+                                <td>أوراق وأقلام</td>
+                                <td>20</td>
+                                <td>250 ريال</td>
+                                <td>5,000 ريال</td>
+                            </tr>
+                            <tr>
+                                <td>خدمات صيانة</td>
+                                <td>صيانة الأجهزة</td>
+                                <td>1</td>
+                                <td>3,000 ريال</td>
+                                <td>3,000 ريال</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="4"><strong>المجموع قبل الضريبة</strong></td>
+                                <td><strong>8,000 ريال</strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"><strong>ضريبة القيمة المضافة (15%)</strong></td>
+                                <td><strong>1,200 ريال</strong></td>
+                            </tr>
+                            <tr class="grand-total">
+                                <td colspan="4"><strong>الإجمالي النهائي</strong></td>
+                                <td><strong>9,200 ريال</strong></td>
+                            </tr>
+                        </table>
+
+                        <p style="margin-top: 15px;"><strong>النتيجة:</strong> تم تسجيل فاتورة المورد برقم SUP-2024-5678 بقيمة 9,200 ريال كالتزام على الشركة</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-placeholder">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f0f0f0' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23999'%3Eإدخال فاتورة مورد في QuickBooks%3C/text%3E%3C/svg%3E" alt="Bill Entry Screenshot">
+                </div>
+            </div>
+        </div>
+
+        <!-- التحصيل -->
+        <div id="collection" class="module hidden">
+            <h2>💰 التحصيل (Collection)</h2>
+            
+            <div class="module-content">
+                <h3>الخطوات:</h3>
+                <ol class="steps">
+                    <li>اذهب إلى <strong>+ New</strong></li>
+                    <li>اختر <strong>Receive Payment</strong></li>
+                    <li>اختر <strong>العميل</strong> الذي يسدد الدفعة</li>
+                    <li>تحديد <strong>طريقة الدفع</strong> (شيك، تحويل بنكي، نقداً)</li>
+                    <li>أدخل <strong>مبلغ الدفعة</strong></li>
+                    <li>اختر <strong>الفواتير</strong> المراد تسديدها</li>
+                    <li>انقر <strong>Save and Close</strong></li>
+                </ol>
+
+                <div class="example-section">
+                    <h3>📋 مثال عملي - تحصيل من عميل:</h3>
+                    <div class="example-box">
+                        <p><strong>بيانات التحصيل:</strong></p>
+                        <ul>
+                            <li>العميل: شركة النور للتجارة</li>
+                            <li>تاريخ الدفعة: 25/09/2024</li>
+                            <li>طريقة الدفع: تحويل بنكي</li>
+                            <li>رقم المرجع: TRF-2024-1001</li>
+                        </ul>
+
+                        <table class="example-table">
+                            <tr>
+                                <th>رقم الفاتورة</th>
+                                <th>تاريخ الفاتورة</th>
+                                <th>المبلغ الأصلي</th>
+                                <th>المبلغ المدفوع</th>
+                                <th>الرصيد المتبقي</th>
+                            </tr>
+                            <tr>
+                                <td>INV-001-2024</td>
+                                <td>26/09/2024</td>
+                                <td>11,500</td>
+                                <td>6,500</td>
+                                <td>5,000</td>
+                            </tr>
+                            <tr>
+                                <td>INV-005-2024</td>
+                                <td>10/09/2024</td>
+                                <td>7,000</td>
+                                <td>7,000</td>
+                                <td>0</td>
+                            </tr>
+                            <tr class="grand-total">
+                                <td colspan="3"><strong>إجمالي المدفوع في هذه العملية</strong></td>
+                                <td colspan="2"><strong>13,500 ريال</strong></td>
+                            </tr>
+                        </table>
+
+                        <p style="margin-top: 15px;"><strong>النتيجة:</strong> تم استقبال دفعة بقيمة 13,500 ريال من العميل وتسديد فاتورتين</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-placeholder">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f0f0f0' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23999'%3Eاستقبال دفعة في QuickBooks%3C/text%3E%3C/svg%3E" alt="Payment Receipt Screenshot">
+                </div>
+            </div>
+        </div>
+
+        <!-- المدفوعات -->
+        <div id="payment" class="module hidden">
+            <h2>💳 المدفوعات (Payments)</h2>
+            
+            <div class="module-content">
+                <h3>الخطوات:</h3>
+                <ol class="steps">
+                    <li>اذهب إلى <strong>+ New</strong></li>
+                    <li>اختر <strong>Check</strong> أو <strong>Pay Bills</strong></li>
+                    <li>اختر <strong>المورد</strong> الذي ستدفع له</li>
+                    <li>تحديد <strong>طريقة الدفع</strong> (شيك، تحويل بنكي)</li>
+                    <li>أدخل <strong>تاريخ الدفع</strong></li>
+                    <li>اختر <strong>الفواتير</strong> المراد دفعها</li>
+                    <li>تحقق من <strong>المبلغ الإجمالي</strong></li>
+                    <li>انقر <strong>Save and Close</strong></li>
+                </ol>
+
+                <div class="example-section">
+                    <h3>📋 مثال عملي - دفع للمورد:</h3>
+                    <div class="example-box">
+                        <p><strong>بيانات الدفع:</strong></p>
+                        <ul>
+                            <li>المورد: شركة الإمداد للتوريد</li>
+                            <li>تاريخ الدفع: 26/09/2024</li>
+                            <li>طريقة الدفع: تحويل بنكي</li>
+                            <li>رقم الشيك/المرجع: CHK-2024-5001</li>
+                        </ul>
+
+                        <table class="example-table">
+                            <tr>
+                                <th>رقم الفاتورة</th>
+                                <th>تاريخ الفاتورة</th>
+                                <th>المبلغ الأصلي</th>
+                                <th>المبلغ المدفوع</th>
+                            </tr>
+                            <tr>
+                                <td>SUP-2024-5678</td>
+                                <td>20/09/2024</td>
+                                <td>9,200</td>
+                                <td>9,200</td>
+                            </tr>
+                            <tr>
+                                <td>SUP-2024-5679</td>
+                                <td>21/09/2024</td>
+                                <td>6,500</td>
+                                <td>6,500</td>
+                            </tr>
+                            <tr class="grand-total">
+                                <td colspan="2"><strong>إجمالي الدفع</strong></td>
+                                <td colspan="2"><strong>15,700 ريال</strong></td>
+                            </tr>
+                        </table>
+
+                        <p style="margin-top: 15px;"><strong>النتيجة:</strong> تم دفع مبلغ 15,700 ريال للمورد وتسوية فاتورتين</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-placeholder">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f0f0f0' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23999'%3Eدفع فاتورة مورد في QuickBooks%3C/text%3E%3C/svg%3E" alt="Bill Payment Screenshot">
+                </div>
+            </div>
+        </div>
+
+        <!-- التسويات -->
+        <div id="reconciliation" class="module hidden">
+            <h2>✅ التسويات (Reconciliation)</h2>
+            
+            <div class="module-content">
+                <h3>الخطوات:</h3>
+                <ol class="steps">
+                    <li>اذهب إلى <strong>Accounting</strong> من القائمة الرئيسية</li>
+                    <li>اختر <strong>Reconcile</strong></li>
+                    <li>اختر <strong>نوع الحساب</strong> (Bank Account, Credit Card)</li>
+                    <li>أدخل <strong>رصيد البنك النهائي</strong> من كشف الحساب</li>
+                    <li>أدخل <strong>تاريخ النهاية</strong> للكشف</li>
+                    <li>ابدأ في <strong>مطابقة الحركات</strong> (الإيداعات والسحوبات)</li>
+                    <li>أنهِ <strong>الحركات المعلقة</strong></li>
+                    <li>انقر <strong>Finish</strong> عند التطابق الكامل</li>
+                </ol>
+
+                <div class="example-section">
+                    <h3>📋 مثال عملي - تسوية حساب بنكي:</h3>
+                    <div class="example-box">
+                        <p><strong>بيانات التسوية:</strong></p>
+                        <ul>
+                            <li>الحساب: حساب البنك الأهلي - رقم 1234567890</li>
+                            <li>فترة التسوية: من 1 إلى 30 سبتمبر 2024</li>
+                            <li>رصيد البنك من الكشف: 145,000 ريال</li>
+                            <li>رصيد QuickBooks: 130,000 ريال</li>
+                        </ul>
+
+                        <table class="example-table">
+                            <tr>
+                                <th>النوع</th>
+                                <th>التاريخ</th>
+                                <th>البيان</th>
+                                <th>المبلغ</th>
+                                <th>الحالة</th>
+                            </tr>
+                            <tr>
+                                <td>إيداع</td>
+                                <td>01/09/2024</td>
+                                <td>راتب موظف</td>
+                                <td>50,000</td>
+                                <td>✓ موافق</td>
+                            </tr>
+                            <tr>
+                                <td>سحب</td>
+                                <td>05/09/2024</td>
+                                <td>دفع فاتورة كهرباء</td>
+                                <td>5,000</td>
+                                <td>✓ موافق</td>
+                            </tr>
+                            <tr>
+                                <td>إيداع</td>
+                                <td>10/09/2024</td>
+                                <td>بيع خدمات</td>
+                                <td>30,000</td>
+                                <td>✓ موافق</td>
+                            </tr>
+                            <tr>
+                                <td>سحب</td>
+                                <td>15/09/2024</td>
+                                <td>دفع رصيد مورد</td>
+                                <td>15,700</td>
+                                <td>✓ موافق</td>
+                            </tr>
+                            <tr>
+                                <td>سحب</td>
+                                <td>25/09/2024</td>
+                                <td>شيك معلق (لم يصرف بعد)</td>
+                                <td>10,000</td>
+                                <td>⏳ معلق</td>
+                            </tr>
+                            <tr class="grand-total">
+                                <td colspan="3"><strong>الفرق المتوقع</strong></td>
+                                <td colspan="2"><strong>10,000 ريال (شيك معلق)</strong></td>
+                            </tr>
+                        </table>
+
+                        <p style="margin-top: 15px;"><strong>النتيجة:</strong></p>
+                        <ul>
+                            <li>رصيد البنك الفعلي: 145,000 ريال</li>
+                            <li>رصيد QuickBooks المعدل: 140,000 ريال (بعد استبعاد الشيك المعلق)</li>
+                            <li>الفرق: 5,000 ريال فائض (قد يكون رسوم بنكية لم تسجل)</li>
+                            <li>تمت التسوية بنجاح ✓</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="screenshot-placeholder">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f0f0f0' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23999'%3Eتسوية الحسابات في QuickBooks%3C/text%3E%3C/svg%3E" alt="Reconciliation Screenshot">
+                </div>
+            </div>
+        </div>
+
+        <!-- إعداد مورد جديد -->
+        <div id="vendor" class="module hidden">
+            <h2>🏭 إعداد مورد جديد (New Vendor)</h2>
+            
+            <div class="module-content">
+                <h3>الخطوات:</h3>
+                <ol class="steps">
+                    <li>اذهب إلى <strong>Expenses</strong> من القائمة الرئيسية</li>
+                    <li>اختر <strong>Vendors</strong></li>
+                    <li>انقر <strong>New Vendor</strong></li>
+                    <li>أدخل <strong>اسم المورد</strong></li>
+                    <li>أدخل <strong>رقم الجوال والبريد الإلكتروني</strong></li>
+                    <li>أدخل <strong>العنوان</strong> والمدينة والدولة</li>
+                    <li>أدخل <strong>رقم البطاقة الضريبية</strong> (إن وجدت)</li>
+                    <li>اختر <strong>العملة</strong> الافتراضية للمورد</li>
+                    <li>انقر <strong>Save</strong></li>
+                </ol>
+
+                <div class="example-section">
+                    <h3>📋 مثال عملي - إضافة مورد جديد:</h3>
+                    <div class="example-box">
+                        <p><strong>بيانات المورد:</strong></p>
+                        <table class="example-table">
+                            <tr>
+                                <th>الحقل</th>
+                                <th>البيانات</th>
+                            </tr>
+                            <tr>
+                                <td><strong>اسم المورد</strong></td>
+                                <td>شركة الإمداد السريع للتوريد</td>
+                            </tr>
+                            <tr>
+                                <td><strong>اسم الشخص المسؤول</strong></td>
+                                <td>محمد علي أحمد</td>
+                            </tr>
+                            <tr>
+                                <td><strong>رقم الجوال</strong></td>
+                                <td>+966501234567</td>
+                            </tr>
+                            <tr>
+                                <td><strong>البريد الإلكتروني</strong></td>
+                                <td>contact@supply.com</td>
+                            </tr>
+                            <tr>
+                                <td><strong>العنوان</strong></td>
+                                <td>شارع الملك فهد، جدة</td>
+                            </tr>
+                            <tr>
+                                <td><strong>رقم البطاقة الضريبية</strong></td>
+                                <td>310123456789123</td>
+                            </tr>
+                            <tr>
+                                <td><strong>رقم الحساب البنكي</strong></td>
+                                <td>SA1512345678901234567890</td>
+                            </tr>
+                            <tr>
+                                <td><strong>العملة الافتراضية</strong></td>
+                                <td>ريال سعودي (SAR)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>حد الائتمان</strong></td>
+                                <td>100,000 ريال</td>
+                            </tr>
+                            <tr>
+                                <td><strong>شروط الدفع</strong></td>
+                                <td>صافي 30 يوم</td>
+                            </tr>
+                        </table>
+
+                        <p style="margin-top: 15px;"><strong>النتيجة:</strong> تم إنشاء بطاقة مورد جديدة وأصبح متاحاً لتسجيل الفواتير والمدفوعات</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-placeholder">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f0f0f0' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23999'%3Eإنشاء مورد جديد في QuickBooks%3C/text%3E%3C/svg%3E" alt="New Vendor Screenshot">
+                </div>
+            </div>
+        </div>
+
+        <!-- إعداد عميل جديد -->
+        <div id="customer" class="module hidden">
+            <h2>👤 إعداد عميل جديد (New Customer)</h2>
+            
+            <div class="module-content">
+                <h3>الخطوات:</h3>
+                <ol class="steps">
+                    <li>اذهب إلى <strong>Sales</strong> من القائمة الرئيسية</li>
+                    <li>اختر <strong>Customers</strong></li>
+                    <li>انقر <strong>New Customer</strong></li>
+                    <li>أدخل <strong>اسم العميل</strong></li>
+                    <li>أدخل <strong>رقم الجوال والبريد الإلكتروني</strong></li>
+                    <li>أدخل <strong>العنوان</strong> والمدينة والدولة</li>
+                    <li>أدخل <strong>الرقم الضريبي</strong> (إن كان عميل تجاري)</li>
+                    <li>اختر <strong>العملة</strong> والشروط الافتراضية</li>
+                    <li>انقر <strong>Save</strong></li>
+                </ol>
+
+                <div class="example-section">
+                    <h3>📋 مثال عملي - إضافة عميل جديد:</h3>
+                    <div class="example-box">
+                        <p><strong>بيانات العميل:</strong></p>
+                        <table class="example-table">
+                            <tr>
+                                <th>الحقل</th>
+                                <th>البيانات</th>
+                            </tr>
+                            <tr>
+                                <td><strong>اسم العميل</strong></td>
+                                <td>شركة النور للتجارة والاستيراد</td>
+                            </tr>
+                            <tr>
+                                <td><strong>نوع العميل</strong></td>
+                                <td>شركة</td>
+                            </tr>
+                            <tr>
+                                <td><strong>اسم المسؤول</strong></td>
+                                <td>فاطمة محمود حسين</td>
+                            </tr>
+                            <tr>
+                                <td><strong>رقم الجوال</strong></td>
+                                <td>+966541234567</td>
+                            </tr>
+                            <tr>
+                                <td><strong>البريد الإلكتروني</strong></td>
+                                <td>info@alnoor.com</td>
+                            </tr>
+                            <tr>
+                                <td><strong>العنوان</strong></td>
+                                <td>حي الروضة، الرياض</td>
+                            </tr>
+                            <tr>
+                                <td><strong>الرقم الضريبي</strong></td>
+                                <td>310987654321987</td>
+                            </tr>
+                            <tr>
+                                <td><strong>رقم السجل التجاري</strong></td>
+                                <td>1010123456</td>
+                            </tr>
+                            <tr>
+                                <td><strong>العملة الافتراضية</strong></td>
+                                <td>ريال سعودي (SAR)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>شروط الدفع</strong></td>
+                                <td>صافي 30 يوم</td>
+                            </tr>
+                            <tr>
+                                <td><strong>حد الائتمان</strong></td>
+                                <td>50,000 ريال</td>
+                            </tr>
+                            <tr>
+                                <td><strong>الفئة</strong></td>
+                                <td>عميل تجاري</td>
+                            </tr>
+                        </table>
+
+                        <p style="margin-top: 15px;"><strong>النتيجة:</strong> تم إنشاء ملف عميل جديد وأصبح جاهزاً لإصدار الفواتير والتعامل معه</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-placeholder">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f0f0f0' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23999'%3Eإنشاء عميل جديد في QuickBooks%3C/text%3E%3C/svg%3E" alt="New Customer Screenshot">
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>📱 لوحة تحكم شاملة لإدارة المحاسبة في QuickBooks Online</p>
+            <p>© 2024 - جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
