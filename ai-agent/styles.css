@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+  color: #e2e8f0;
+}
+
+.app {
+  width: 420px;
+  padding: 16px;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  color: #f8fafc;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #bfdbfe;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.65);
+  color: #f8fafc;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+textarea:focus {
+  outline: 2px solid #60a5fa;
+  border-color: transparent;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+button {
+  flex: 1;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+#analyzeBtn {
+  background: #22c55e;
+  color: white;
+}
+
+.secondary {
+  background: #475569;
+  color: white;
+}
+
+.status {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #bfdbfe;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.result {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 12px;
+  line-height: 1.7;
+  color: #e2e8f0;
+  white-space: pre-wrap;
+  font-size: 14px;
+  min-height: 120px;
+}
